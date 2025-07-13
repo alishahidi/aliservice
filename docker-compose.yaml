@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  postgres-aliservice:
+    container_name: postgres-aliservice
+    image: postgres:17.5
+    restart: always
+    environment:
+      POSTGRES_DB: aliservice
+      POSTGRES_USER: aliservice
+      POSTGRES_PASSWORD: 1376gtid
+    ports:
+      - "5432:5432"
+    networks:
+      - aliservice_network
+    volumes:
+      - postgres_aliservice_data:/var/lib/postgresql/data
+
+networks:
+  aliservice_network:
+    driver: bridge
+
+volumes:
+  postgres_aliservice_data:
+    driver: local
