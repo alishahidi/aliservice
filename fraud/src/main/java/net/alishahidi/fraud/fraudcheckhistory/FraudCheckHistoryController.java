@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("api/v1/fraud-check")
+@RequestMapping("/api/v1/frauds")
 public record FraudCheckHistoryController(
         FraudCheckHistoryService fraudCheckHistoryService
 ) {

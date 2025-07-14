@@ -8,6 +8,7 @@ public record CustomerService(
         CustomerRepository customerRepository,
         RestTemplate restTemplate
 ) {
+
     public void registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
         Customer customer = Customer.builder()
                 .firstName(customerRegistrationRequest.firstName())
@@ -18,7 +19,7 @@ public record CustomerService(
         customerRepository.saveAndFlush(customer);
 
         FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
-                "http://localhost:8081/api/v1/fraud-check/{customerId}",
+                "http://FRAUD/api/v1/frauds/{customerId}",
                 FraudCheckResponse.class,
                 customer.getId()
         );
