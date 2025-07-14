@@ -18,10 +18,3 @@ spring:
               uri: lb://FRAUD
               predicates:
                 - Path=/api/v1/frauds/**
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-    fetch-registry: true
-    register-with-eureka: true

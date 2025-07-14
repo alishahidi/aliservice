@@ -16,6 +16,14 @@ services:
     volumes:
       - postgres_aliservice_data:/var/lib/postgresql/data
 
+  zipkin-aliservice:
+    container_name: zipkin-aliservice
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - aliservice_network
+
 networks:
   aliservice_network:
     driver: bridge
